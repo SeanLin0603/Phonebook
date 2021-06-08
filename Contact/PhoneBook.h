@@ -25,7 +25,7 @@ public:
 	bool Delete(string info);
 	bool Import(string fileName);
 	bool Export(string fileName);
-	bool Sorting(string column, string order);
+	bool Sorting(string column, int order);
 	string SortingMethod;
 	~Contacts();
 

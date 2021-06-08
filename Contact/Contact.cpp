@@ -243,35 +243,13 @@ int main()
 			cout << "Example:Name Ascending" << endl;
 			cout << "Please input your sorting parameter:";
 			
-			string column, order;
+			string column;
+			int order;
 			cin >> column >> order;
-			string columnUpper = convert2Uppercase(column);
-			string orderUpper = convert2Uppercase(order);
 
-			//enum title { Name, Phone, Address, Email };
-			//enum scending { Ascending, Descending };
-
-			int col;
-			int ord;
-
-			if (!columnUpper.compare("NAME")) col = Name;
-			else if (!columnUpper.compare("PHONE")) col = Phone;
-			else if (!columnUpper.compare("ADDRESS")) col = Address;
-			else if (!columnUpper.compare("EMAIL")) col = Email;
-			else
+			if (phoneBook.Sorting(column, order))
 			{
-				cout << endl;
 			}
-
-			if (!orderUpper.compare("ASCENDING")) ord = Ascending;
-			else if (!orderUpper.compare("DESCENDING")) ord = Descending;
-			else
-			{
-				cout << endl;
-			}
-
-			phoneBook.Sorting();
-
 		}
 		else
 		{

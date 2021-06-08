@@ -172,10 +172,129 @@ bool Contacts::Export(string fileName)
 	}
 }
 
-bool Contacts::Sorting(string column, string order)
+bool Contacts::Sorting(string column, int order)
 {
+	vector<Person> sortingData;
+	vector<string> sortingElement;
+	string colUpper = convert2Uppercase(column);
 
-	return false;
+	enum scending { Ascending, Descending };
+
+	if (order != Ascending && order != Descending)
+	{
+		return false;
+	}
+
+	if (!colUpper.compare("NAME"))
+	{
+		cout << "***BEFORE***" << endl;
+		for (int i = 0; i < data.size(); i++)
+		{
+			cout << data[i].name << endl;
+			sortingElement.push_back(data[i].name);
+		}
+
+		if (order == Ascending)
+		{
+			// A-Z
+			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] < s2[0]; });
+		}
+		else if (order == Descending)
+		{
+			// Z-A
+			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] > s2[0]; });
+		}
+		
+		cout << "***AFTER***" << endl;
+		for (int i = 0; i < sortingElement.size(); i++)
+		{
+			cout << sortingElement[i] << endl;
+		}
+	}
+	else if (!colUpper.compare("PHONE"))
+	{
+		cout << "***BEFORE***" << endl;
+		for (int i = 0; i < data.size(); i++)
+		{
+			cout << data[i].phone << endl;
+			sortingElement.push_back(data[i].phone);
+		}
+
+		if (order == Ascending)
+		{
+			// A-Z
+			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] < s2[0]; });
+		}
+		else if (order == Descending)
+		{
+			// Z-A
+			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] > s2[0]; });
+		}
+
+		cout << "***AFTER***" << endl;
+		for (int i = 0; i < sortingElement.size(); i++)
+		{
+			cout << sortingElement[i] << endl;
+		}
+	}
+	else if (!colUpper.compare("ADDRESS"))
+	{
+		cout << "***BEFORE***" << endl;
+		for (int i = 0; i < data.size(); i++)
+		{
+			cout << data[i].address << endl;
+			sortingElement.push_back(data[i].address);
+		}
+
+		if (order == Ascending)
+		{
+			// A-Z
+			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] < s2[0]; });
+		}
+		else if (order == Descending)
+		{
+			// Z-A
+			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] > s2[0]; });
+		}
+
+		cout << "***AFTER***" << endl;
+		for (int i = 0; i < sortingElement.size(); i++)
+		{
+			cout << sortingElement[i] << endl;
+		}
+	}
+	else if (!colUpper.compare("EMAIL"))
+	{
+		cout << "***BEFORE***" << endl;
+		for (int i = 0; i < data.size(); i++)
+		{
+			cout << data[i].email << endl;
+			sortingElement.push_back(data[i].email);
+		}
+
+		if (order == Ascending)
+		{
+			// A-Z
+			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] < s2[0]; });
+		}
+		else if (order == Descending)
+		{
+			// Z-A
+			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] > s2[0]; });
+		}
+
+		cout << "***AFTER***" << endl;
+		for (int i = 0; i < sortingElement.size(); i++)
+		{
+			cout << sortingElement[i] << endl;
+		}
+	}
+	else
+	{
+		cout << endl;
+	}
+
+	return true;
 }
 
 
