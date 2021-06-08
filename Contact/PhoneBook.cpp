@@ -197,12 +197,12 @@ bool Contacts::Sorting(string column, int order)
 		if (order == Ascending)
 		{
 			// A-Z
-			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] < s2[0]; });
+			sort(sortingElement.begin(), sortingElement.end(), less<string>());
 		}
 		else if (order == Descending)
 		{
 			// Z-A
-			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] > s2[0]; });
+			sort(sortingElement.begin(), sortingElement.end(), greater<string>());
 		}
 		
 		cout << "***AFTER***" << endl;
@@ -223,12 +223,12 @@ bool Contacts::Sorting(string column, int order)
 		if (order == Ascending)
 		{
 			// A-Z
-			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] < s2[0]; });
+			sort(sortingElement.begin(), sortingElement.end(), less<string>());
 		}
 		else if (order == Descending)
 		{
 			// Z-A
-			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] > s2[0]; });
+			sort(sortingElement.begin(), sortingElement.end(), greater<string>());
 		}
 
 		cout << "***AFTER***" << endl;
@@ -249,12 +249,12 @@ bool Contacts::Sorting(string column, int order)
 		if (order == Ascending)
 		{
 			// A-Z
-			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] < s2[0]; });
+			sort(sortingElement.begin(), sortingElement.end(), less<string>());
 		}
 		else if (order == Descending)
 		{
 			// Z-A
-			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] > s2[0]; });
+			sort(sortingElement.begin(), sortingElement.end(), greater<string>());
 		}
 
 		cout << "***AFTER***" << endl;
@@ -275,12 +275,12 @@ bool Contacts::Sorting(string column, int order)
 		if (order == Ascending)
 		{
 			// A-Z
-			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] < s2[0]; });
+			sort(sortingElement.begin(), sortingElement.end(), less<string>());
 		}
 		else if (order == Descending)
 		{
 			// Z-A
-			sort(sortingElement.begin(), sortingElement.end(), [](string &s1, string &s2) { return s1[0] > s2[0]; });
+			sort(sortingElement.begin(), sortingElement.end(), greater<string>());
 		}
 
 		cout << "***AFTER***" << endl;
