@@ -182,12 +182,12 @@ bool Contacts::Sorting(string column, int order)
 
 	if (order != Ascending && order != Descending)
 	{
+		cout << "Please be aware of 0 is for ascending, and 1 is for descending." << endl;
 		return false;
 	}
 
 	if (!colUpper.compare("NAME"))
 	{
-		cout << "***BEFORE***" << endl;
 		for (int i = 0; i < data.size(); i++)
 		{
 			cout << data[i].name << endl;
@@ -196,104 +196,150 @@ bool Contacts::Sorting(string column, int order)
 
 		if (order == Ascending)
 		{
+			SortingMethod = "ascending name";
 			// A-Z
 			sort(sortingElement.begin(), sortingElement.end(), less<string>());
 		}
 		else if (order == Descending)
 		{
+			SortingMethod = "descending name";
 			// Z-A
 			sort(sortingElement.begin(), sortingElement.end(), greater<string>());
 		}
 		
-		cout << "***AFTER***" << endl;
+		// moving data
 		for (int i = 0; i < sortingElement.size(); i++)
 		{
-			cout << sortingElement[i] << endl;
+			for (int j = 0; j < data.size(); j++)
+			{
+				if (!sortingElement[i].compare(data[j].name))
+				{
+					sortingData.push_back(data[j]);
+					data.erase(data.begin() + j, data.begin() + j + 1);
+				}
+			}
 		}
+
+		data.clear();
+		data = sortingData;
+		Display();
 	}
 	else if (!colUpper.compare("PHONE"))
 	{
-		cout << "***BEFORE***" << endl;
 		for (int i = 0; i < data.size(); i++)
 		{
-			cout << data[i].phone << endl;
 			sortingElement.push_back(data[i].phone);
 		}
 
 		if (order == Ascending)
 		{
-			// A-Z
+			SortingMethod = "ascending phone";
+			// 0-9
 			sort(sortingElement.begin(), sortingElement.end(), less<string>());
 		}
 		else if (order == Descending)
 		{
-			// Z-A
+			SortingMethod = "descending phone";
+			// 9-0
 			sort(sortingElement.begin(), sortingElement.end(), greater<string>());
 		}
 
-		cout << "***AFTER***" << endl;
+		// moving data
 		for (int i = 0; i < sortingElement.size(); i++)
 		{
-			cout << sortingElement[i] << endl;
+			for (int j = 0; j < data.size(); j++)
+			{
+				if (!sortingElement[i].compare(data[j].phone))
+				{
+					sortingData.push_back(data[j]);
+					data.erase(data.begin() + j, data.begin() + j + 1);
+				}
+			}
 		}
+
+		data.clear();
+		data = sortingData;
+		Display();
 	}
 	else if (!colUpper.compare("ADDRESS"))
 	{
-		cout << "***BEFORE***" << endl;
 		for (int i = 0; i < data.size(); i++)
 		{
-			cout << data[i].address << endl;
 			sortingElement.push_back(data[i].address);
 		}
 
 		if (order == Ascending)
 		{
+			SortingMethod = "ascending address";
 			// A-Z
 			sort(sortingElement.begin(), sortingElement.end(), less<string>());
 		}
 		else if (order == Descending)
 		{
+			SortingMethod = "descending address";
 			// Z-A
 			sort(sortingElement.begin(), sortingElement.end(), greater<string>());
 		}
 
-		cout << "***AFTER***" << endl;
+		// moving data
 		for (int i = 0; i < sortingElement.size(); i++)
 		{
-			cout << sortingElement[i] << endl;
+			for (int j = 0; j < data.size(); j++)
+			{
+				if (!sortingElement[i].compare(data[j].address))
+				{
+					sortingData.push_back(data[j]);
+					data.erase(data.begin() + j, data.begin() + j + 1);
+				}
+			}
 		}
+
+		data.clear();
+		data = sortingData;
+		Display();
 	}
 	else if (!colUpper.compare("EMAIL"))
 	{
-		cout << "***BEFORE***" << endl;
 		for (int i = 0; i < data.size(); i++)
 		{
-			cout << data[i].email << endl;
 			sortingElement.push_back(data[i].email);
 		}
 
 		if (order == Ascending)
 		{
+			SortingMethod = "ascending email";
 			// A-Z
 			sort(sortingElement.begin(), sortingElement.end(), less<string>());
 		}
 		else if (order == Descending)
 		{
+			SortingMethod = "descending email";
 			// Z-A
 			sort(sortingElement.begin(), sortingElement.end(), greater<string>());
 		}
 
-		cout << "***AFTER***" << endl;
+		// moving data
 		for (int i = 0; i < sortingElement.size(); i++)
 		{
-			cout << sortingElement[i] << endl;
+			for (int j = 0; j < data.size(); j++)
+			{
+				if (!sortingElement[i].compare(data[j].email))
+				{
+					sortingData.push_back(data[j]);
+					data.erase(data.begin() + j, data.begin() + j + 1);
+				}
+			}
 		}
+
+		data.clear();
+		data = sortingData;
+		Display();
 	}
 	else
 	{
-		cout << endl;
+		cout << "Invalid column name." << endl;
+		return false;
 	}
-
 	return true;
 }
 

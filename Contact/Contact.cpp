@@ -22,7 +22,7 @@ int main()
 		cout << "[5]\t Delete a contact" << endl;
 		cout << "[6]\t Import from file" << endl;
 		cout << "[7]\t Export to file" << endl;
-		cout << "[8]\t eee..." << endl;
+		cout << "[8]\t Sorting" << endl;
 		
 		cout << endl << "[0]\t Exit" << endl;
 		cout << "========================================" << endl;
@@ -240,15 +240,17 @@ int main()
 		{
 			// SORT
 			cout << "Usage of Sorting : Column Order" << endl;
-			cout << "Example:Name Ascending" << endl;
+			cout << "0 is for ascending, and 1 is for descending." << endl;
+			cout << "Example:Name 0" << endl;
 			cout << "Please input your sorting parameter:";
 			
 			string column;
 			int order;
 			cin >> column >> order;
 
-			if (phoneBook.Sorting(column, order))
+			if (!phoneBook.Sorting(column, order))
 			{
+				cout << "Sorting error!" << endl;
 			}
 		}
 		else
