@@ -190,7 +190,6 @@ bool Contacts::Sorting(string column, int order)
 	{
 		for (int i = 0; i < data.size(); i++)
 		{
-			cout << data[i].name << endl;
 			sortingElement.push_back(data[i].name);
 		}
 

@@ -33,7 +33,7 @@ int main()
 		if (choice == 0)
 		{
 			// EXIT
-			cout << "88" << endl;
+			cout << "GoodBye" << endl;
 			break;
 		}
 		else if (choice == 1)
